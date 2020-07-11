@@ -1,0 +1,5 @@
+spring:
+  profiles: default
+  batch:
+    job:
+      names: ${job.name:NONE}
