@@ -55,4 +55,9 @@ project(':spring-boot-jpa-example') {
     jar.enabled = true
 }
 
+project(':spring-boot-common-example') {
+    bootJar.enabled = false
+    jar.enabled = true
+}
+
 

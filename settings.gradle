@@ -1,4 +1,5 @@
 rootProject.name = 'spring-boot-example'
 include 'spring-boot-jpa-example'
 include 'spring-boot-batch-example'
+include 'spring-boot-common-example'
 
