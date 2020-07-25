@@ -4,6 +4,7 @@ package org.example.batch.bean;
 import lombok.extern.slf4j.Slf4j;
 import org.example.batch.domain.RepeatStepExampleDomain;
 import org.example.batch.job.RepeatStepExampleJob;
+import org.example.batch.repository.RepeatStepExampleRepository;
 import org.springframework.batch.core.ExitStatus;
 import org.springframework.batch.core.StepExecution;
 import org.springframework.batch.core.StepExecutionListener;
@@ -41,7 +42,7 @@ public class RepeatStepExampleBean implements ItemStream, ItemReader<String>,
 
     @Override
     public void open(ExecutionContext executionContext) throws ItemStreamException {
-
+        RepeatStepExampleRepository repeatStepExampleRepository;
         if (repeatCountIterator.hasNext()) {
             readData = repeatCountIterator.next().getData();
             iterator = new ArrayList<>(Arrays.asList(readData, readData)).iterator();

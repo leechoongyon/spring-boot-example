@@ -3,3 +3,10 @@ spring:
   batch:
     job:
       names: ${job.name:NONE}
+
+  jpa:
+    show-sql: true
+
+logging:
+  level:
+    org.hibernate.type: debug
