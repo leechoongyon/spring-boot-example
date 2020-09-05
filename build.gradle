@@ -44,15 +44,28 @@ allprojects {
 }
 
 
+project(':spring-boot-online-example') {
+    bootJar.enabled = true
+    jar.enabled = true
+    dependencies {
+        compile project(':spring-boot-common-example')
+    }
+}
 
 project(':spring-boot-batch-example') {
     bootJar.enabled = true
     jar.enabled = true
+    dependencies {
+        compile project(':spring-boot-common-example')
+    }
 }
 
 project(':spring-boot-jpa-example') {
     bootJar.enabled = true
     jar.enabled = true
+    dependencies {
+        compile project(':spring-boot-common-example')
+    }
 }
 
 project(':spring-boot-common-example') {
