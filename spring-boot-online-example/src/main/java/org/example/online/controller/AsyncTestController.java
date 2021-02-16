@@ -20,7 +20,7 @@ public class AsyncTestController {
         return "asyncTest...";
     }
 
-    @GetMapping("test/sync")
+    @GetMapping("/test/sync")
     public String syncTest() {
         asyncTestService.syncTest();
         return "syncTest...";

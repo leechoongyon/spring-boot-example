@@ -24,7 +24,7 @@ public class AsyncTestService {
         try {
             log.info("before sleep...");
             Thread.sleep(5000);
-            log.info("asyncTest");
+            log.info("after sleep, syncTest...");
         } catch (InterruptedException e) {
             log.error(e.getMessage(), e);
             throw new RuntimeException(e);
