@@ -21,7 +21,7 @@ import static org.hamcrest.Matchers.is;
 public class SimpleApiControllerTest {
 
     /**
-     * 내장 톰캣 띄우고 테스트 해야 함.
+     * 내장 톰캣 띄우고 테스트 해야 함. ExampleApplication 실행해야 함.
      * @throws Exception
      */
     @Test
@@ -40,7 +40,7 @@ public class SimpleApiControllerTest {
     }
 
     /**
-     * 내장 톰캣 띄우고 테스트 해야 함.
+     * 내장 톰캣 띄우고 테스트 해야 함. ExampleApplication 실행해야 함.
      * @throws Exception
      */
     @Test
@@ -65,7 +65,7 @@ public class SimpleApiControllerTest {
     }
 
     /**
-     * 내장 톰캣 띄우고 테스트 해야 함.
+     * 내장 톰캣 띄우고 테스트 해야 함. ExampleApplication 실행해야 함.
      * @throws Exception
      */
     @Test
@@ -90,7 +90,7 @@ public class SimpleApiControllerTest {
     }
 
     /**
-     * 내장 톰캣 띄우고 테스트 해야 함.
+     * 내장 톰캣 띄우고 테스트 해야 함. ExampleApplication 실행해야 함.
      * @throws Exception
      */
     @Test
