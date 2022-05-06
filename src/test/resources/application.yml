@@ -30,3 +30,6 @@ spring:
 #    org.hibernate.SQL: debug
 #    org.hibernate.type: trace
 
+logging:
+  level:
+    root: INFO
