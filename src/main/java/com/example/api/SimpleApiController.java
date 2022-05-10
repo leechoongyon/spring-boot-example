@@ -1,5 +1,6 @@
 package com.example.api;
 
+import com.example.dto.SimpleCommand;
 import com.example.dto.SimpleDto;
 import com.example.dto.SimpleV2Dto;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class SimpleApiController {
+
+    private final SimpleDtoMapper simpleDtoMapper;
 
     @GetMapping("/api/hello")
     public String helloWorld() {
@@ -44,5 +47,13 @@ public class SimpleApiController {
         } else {
             return new ResponseEntity<>("", HttpStatus.OK);
         }
+    }
+
+    @PostMapping("/api/v1/hello")
+    public ResponseEntity<?> hello(@RequestBody SimpleDto.Request request) {
+//        SimpleCommand.Request command = SimpleDtoMapper.INSTANCE.of(request);
+        SimpleCommand.Request command = simpleDtoMapper.of(request);
+        log.info("command : {}", command);
+        return new ResponseEntity<>(command, HttpStatus.OK);
     }
 }

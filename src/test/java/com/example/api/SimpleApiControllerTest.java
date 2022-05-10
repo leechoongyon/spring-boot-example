@@ -113,4 +113,27 @@ public class SimpleApiControllerTest {
             Assert.assertThat(response.get("errorCode"), is("2002") );
         }
     }
+
+    /**
+     * 내장 톰캣 띄우고 테스트 해야 함. ExampleApplication 실행해야 함.
+     * @throws Exception
+     */
+    @Test
+    public void hello_v1_post_api_정상_테스트() throws Exception {
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(new MediaType("application","json", Charset.forName("UTF-8")));
+
+        String url = "http://localhost:8080/api/v1/hello";
+        SimpleDto.Request request = SimpleDto.Request.builder()
+                .name("testName")
+                .key("key")
+                .build();
+        HttpEntity httpEntity = new HttpEntity<>(request, headers);
+        ResponseEntity<Map> result = restTemplate.exchange(url,HttpMethod.POST, httpEntity , Map.class);
+        Map<String, String> response = result.getBody();
+        System.out.println("response : " + response);
+        Assert.assertThat(response.get("key"), is("key") );
+        Assert.assertThat(response.get("name"), is("testName") );
+    }
 }
