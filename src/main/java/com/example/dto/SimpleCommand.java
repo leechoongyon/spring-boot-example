@@ -19,6 +19,20 @@ public class SimpleCommand {
 
     @Getter @Setter
     @ToString
+    public static class RequestV2 {
+        private final String key;
+        private final String name;
+        private final int intValue;
+
+        public RequestV2(String key, String name, int intValue) {
+            this.key = key;
+            this.name = name;
+            this.intValue = intValue;
+        }
+    }
+
+    @Getter @Setter
+    @ToString
     public static class ListRequest {
         private final String key;
         private final List<Item> items;

@@ -5,14 +5,13 @@ import com.example.dto.SimpleCommand;
 import com.example.dto.SimpleDto;
 import org.junit.Assert;
 import org.junit.Test;
-import org.mapstruct.factory.Mappers;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SimpleDtoMapperTest {
+import static com.example.api.SimpleDtoMapper.INSTANCE;
 
-    private SimpleDtoMapper simpleDtoMapper = Mappers.getMapper(SimpleDtoMapper.class);
+public class SimpleDtoMapperTest {
 
     @Test
     public void 단건_mapper_test() throws Exception {
@@ -21,7 +20,7 @@ public class SimpleDtoMapperTest {
                 .name("keyName")
                 .build();
 
-        SimpleCommand.Request result = simpleDtoMapper.of(request);
+        SimpleCommand.Request result = INSTANCE.of(request);
         Assert.assertEquals("keytest", result.getKey());
     }
 
@@ -37,9 +36,23 @@ public class SimpleDtoMapperTest {
                 .itemList(itemsList)
                 .build();
 
-        SimpleCommand.ListRequest result = simpleDtoMapper.of(request);
+        SimpleCommand.ListRequest result = INSTANCE.of(request);
         Assert.assertEquals("keyTest", result.getKey());
         Assert.assertEquals("item1", result.getItems().get(0).getItemName());
     }
 
+    @Test
+    public void 아규먼트_다건_mapper_테스트() {
+        // given
+        SimpleDto.Request request = SimpleDto.Request.builder()
+                .key("keytest")
+                .name("keyName")
+                .build();
+
+        final int testIntValue = 25;
+
+        SimpleCommand.RequestV2 result = INSTANCE.of(request, testIntValue);
+        Assert.assertEquals("keytest", result.getKey());
+        Assert.assertEquals(25, result.getIntValue());
+    }
 }
